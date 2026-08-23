@@ -1,0 +1,10 @@
+services:
+  frpc:
+    image: fatedier/frpc:v0.71.0
+    container_name: frpc
+    volumes:
+      - ./frpc.toml:/etc/frp/frpc.toml
+      - ./secret.txt:/etc/frp/secret.txt
+    command: -c /etc/frp/frpc.toml
+    extra_hosts:
+      - "host.docker.internal:host-gateway"

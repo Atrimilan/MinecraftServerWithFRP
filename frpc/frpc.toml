@@ -1,0 +1,20 @@
+serverAddr = "YOUR_VPS_IP_ADDRESS_HERE"
+serverPort = 7000
+
+auth.method = "token"
+auth.tokenSource.type = "file"
+auth.tokenSource.file.path = "/etc/frp/secret.txt"
+
+[[proxies]]
+name = "minecraft-tunnel"
+type = "tcp"
+localIP = "host.docker.internal"
+localPort = 25565 # Minecraft server port
+remotePort = 26000
+
+[[proxies]]
+name = "minecraft-dynmap"
+type = "tcp"
+localIP = "host.docker.internal"
+localPort = 8123 # Dynmap webserver port
+remotePort = 26001

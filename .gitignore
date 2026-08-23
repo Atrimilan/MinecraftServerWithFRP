@@ -1,0 +1,4 @@
+*/secret.txt
+
+mc_server/*
+!mc_server/run.bat

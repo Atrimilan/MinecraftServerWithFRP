@@ -1,0 +1,13 @@
+services:
+  frps:
+    image: fatedier/frps:v0.71.0
+    container_name: frps
+    restart: always # Start on VPS boot
+    ports:
+      - "7000:7000/tcp"   # Bindind port (frps-frpc)
+      - "26000:26000/tcp" # Minecraft server port
+      - "26001:26001/tcp" # Dynmap webserver port
+    volumes:
+      - ./frps.toml:/etc/frp/frps.toml
+      - ./secret.txt:/etc/frp/secret.txt
+    command: -c /etc/frp/frpc.toml
