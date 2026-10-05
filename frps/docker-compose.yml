@@ -10,4 +10,4 @@ services:
     volumes:
       - ./frps.toml:/etc/frp/frps.toml
       - ./secret.txt:/etc/frp/secret.txt
-    command: -c /etc/frp/frpc.toml
+    command: -c /etc/frp/frps.toml
